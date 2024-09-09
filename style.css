@@ -9,7 +9,7 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     height: 100vh;
     background-color: black;
@@ -18,13 +18,11 @@ body {
 }
 
 body h1 {
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     font-size: 2.5rem;
-    margin-bottom: 2rem;
-    margin-top: -38rem;
     font-family: "Open Sans";
     font-weight: 100;
     color: white;
@@ -55,6 +53,12 @@ body h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
     font-size: 1rem;
     overflow: hidden;
+    transition: 0.5s;
+}
+
+.mainContainer input:hover {
+    transition: 0.5s ;
+    width: 40%;
 }
 
 .mainContainer button {
@@ -72,6 +76,7 @@ body h1 {
     margin-left: -3.5rem;
     margin-top: 0.2rem;
     font-size: 1.5rem;
+    z-index: 1;
 }
 
 .mainContainer button:hover {
@@ -81,3 +86,17 @@ body h1 {
 .mainContainer button:active {
     background-color: #3b3bff;
 }
+
+.buttonBackgroundClickBlocker {
+    position: fixed;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 3;
+    margin-top: -0.2rem;
+}
+/* 
+TODO:
+Arama butonunun üzerine gelince inputun küçülmesini engelle. 
+*/
