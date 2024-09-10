@@ -88,7 +88,6 @@ button {
     color: white;
     cursor: pointer;
     margin-left: -3.5rem;
-    margin-top: 0.2rem;
     font-size: 1.5rem;
     z-index: 1;
 }
@@ -118,7 +117,7 @@ button:active {
     align-items: center;
     width: 50%;
     height: 100%;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(40px);
     border-radius: 5vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
     overflow: hidden;
@@ -131,7 +130,7 @@ button:active {
     align-items: center;
     width: 50%;
     height: 100%;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(40px);
     border-radius: 5vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
     overflow: hidden;
