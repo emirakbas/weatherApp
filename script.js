@@ -1,5 +1,4 @@
 
-
 // Mouse arama kutusunun üzerine gelince çalışacaklar:
 
 const searchBox = document.querySelector('input');
@@ -48,7 +47,7 @@ document.querySelector('#d5').innerHTML = (`${daySix}`);
 
 searchButton.addEventListener('click', function() {
 
-    document.querySelector('#cityNameTitle').innerHTML = searchBox.value;
+document.querySelector('#cityNameTitle').innerHTML = searchBox.value;
 const cityName = document.querySelector('input');
 
 console.log(cityName.value);
@@ -96,6 +95,7 @@ searchBox.addEventListener('keydown', function(event) {
         });
     }
 });
+
 
 /* TODO: 
 1- Commitlemeden önce API keyleri kaldır ve yerine {API_KEY} yaz. */
