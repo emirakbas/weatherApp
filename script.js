@@ -1,4 +1,5 @@
 
+
 // Mouse arama kutusunun üzerine gelince çalışacaklar:
 
 const searchBox = document.querySelector('input');
@@ -29,8 +30,21 @@ const dayOfWeek = today.getDay() - 1;
 console.log(dayOfWeek); // Haftanın kaçıncı günü olduğunu söyler.
 days = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
 nowDay = days[dayOfWeek];
+dayTwo = days[(dayOfWeek + 1)%7];
+dayThree = days[(dayOfWeek + 2)%7];
+dayFour = days[(dayOfWeek + 3)%7];
+dayFive = days[(dayOfWeek + 4)%7];
+daySix = days[(dayOfWeek + 5)%7];
 console.log(nowDay); // Bugünün adını söyler.
 // API ve beraberindeki fonksiyonlar:
+
+document.querySelector('#desToDay').innerHTML = (`${nowDay} (Bugün)`);
+
+document.querySelector('#d1').innerHTML = (`${dayTwo}`);
+document.querySelector('#d2').innerHTML = (`${dayThree}`);
+document.querySelector('#d3').innerHTML = (`${dayFour}`);
+document.querySelector('#d4').innerHTML = (`${dayFive}`);
+document.querySelector('#d5').innerHTML = (`${daySix}`);
 
 searchButton.addEventListener('click', function() {
 
