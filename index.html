@@ -20,15 +20,20 @@
     <div class="mainContainer">
         <div class="mainContainerLeft">
             <div class="title">
-                <h1 id="cityNameTitle" ></h1>
+                <h1 id="cityNameTitle" >Asgard</h1>
             </div>
             <div id="desToDay" class="description">
             </div>
             <div class="weatherIcon">
-                <img id="todayIcon" src="https://openweathermap.org/img/wn/01d@4x.png" alt="">
+                <img id="todayIcon" src="http://openweathermap.org/img/wn/04d@4x.png" alt="">
             </div>
             <div id="todayStatus" class="descriptionWeather">
-                <p id="todayStatusDescription"></p> <!-- p yerine başka etiket gelebilir. O yüzden ID'yi bir üst etikete verdim.-->
+                <p id="todayTemp">20°C</p>
+                <p id="todayStatusDescription">Bulutlu</p> <!-- p yerine başka etiket gelebilir. O yüzden ID'yi bir üst etikete verdim.-->
+                <div id="miniDescription">
+                    <p id="todayHumidity">Nem %10</p>
+                    <p id="todayWind">Rüzgar 1.47m/s</p>
+                </div>
             </div>
         </div>
         <div class="mainContainerRight">
@@ -38,46 +43,86 @@
             <div class="daySlot">
                 <div id="d1" class="dayTitle"></div>
                 <div class="dayStats">
-                    <div class="statBlock">1</div>
-                    <div class="statBlock">2</div>
-                    <div class="statBlock">3</div>
-                    <div class="statBlock">4</div>
+                    <div id="sb1" class="statBlock">
+                        <img id="si1" src="http://openweathermap.org/img/wn/01d@2x.png">
+                    </div>
+                    <div id="sb2" class="statBlock">
+                        <p id="sbtx1" class="spfs">21°C</p>
+                    </div>
+                    <div id="sb3" class="statBlock">
+                        <p id="sbtx2" class="spfs">%10</p>
+                    </div>
+                    <div id="sb4" class="statBlock">
+                        <p id="sbtx3" class="spfs">1.21m/s</p>
+                    </div>
                 </div>
             </div>
             <div class="daySlot">
                 <div id="d2" class="dayTitle"></div>
                 <div class="dayStats">
-                    <div class="statBlock">1</div>
-                    <div class="statBlock">2</div>
-                    <div class="statBlock">3</div>
-                    <div class="statBlock">4</div>
+                    <div id="sb5" class="statBlock">
+                        <img id="si2" src="http://openweathermap.org/img/wn/04d@2x.png">
+                    </div>
+                    <div id="sb6" class="statBlock">
+                        <p id="sbtx4" class="spfs">21°C</p>
+                    </div>
+                    <div id="sb7" class="statBlock">
+                        <p id="sbtx5" class="spfs">%12</p>
+                    </div>
+                    <div id="sb8" class="statBlock">
+                        <p id="sbtx6" class="spfs">1.87m/s</p>
+                    </div>
                 </div>
             </div>
             <div class="daySlot">
                 <div id="d3" class="dayTitle"></div>
                 <div class="dayStats">
-                    <div class="statBlock">1</div>
-                    <div class="statBlock">2</div>
-                    <div class="statBlock">3</div>
-                    <div class="statBlock">4</div>
+                    <div id="sb9" class="statBlock">
+                        <img id="si3" src="http://openweathermap.org/img/wn/02d@2x.png">
+                    </div>
+                    <div id="sb10" class="statBlock">
+                        <p id="sbtx7" class="spfs">21°C</p>
+                    </div>
+                    <div id="sb11" class="statBlock">
+                        <p id="sbtx8" class="spfs">%30</p>
+                    </div>
+                    <div id="sb12" class="statBlock">
+                        <p id="sbtx9" class="spfs">1.02m/s</p>
+                    </div>
                 </div>
             </div>
             <div class="daySlot">
                 <div id="d4" class="dayTitle"></div>
                 <div class="dayStats">
-                    <div class="statBlock">1</div>
-                    <div class="statBlock">2</div>
-                    <div class="statBlock">3</div>
-                    <div class="statBlock">4</div>
+                    <div id="sb13" class="statBlock">
+                        <img id="si4" src="http://openweathermap.org/img/wn/01d@2x.png">
+                    </div>
+                    <div id="sb14" class="statBlock">
+                        <p id="sbtx10" class="spfs">21°C</p>
+                    </div>
+                    <div id="sb15" class="statBlock">
+                        <p id="sbtx11" class="spfs">%14</p>
+                    </div>
+                    <div id="sb16" class="statBlock">
+                        <p id="sbtx12" class="spfs">1.10m/s</p>
+                    </div>
                 </div>
             </div>
             <div class="daySlot">
                 <div id="d5" class="dayTitle"></div>
                 <div class="dayStats">
-                    <div class="statBlock">1</div>
-                    <div class="statBlock">2</div>
-                    <div class="statBlock">3</div>
-                    <div class="statBlock">4</div>
+                    <div id="sb17" class="statBlock">
+                        <img id="si5" src="http://openweathermap.org/img/wn/09d@2x.png">
+                    </div>
+                    <div id="sb18" class="statBlock">
+                        <p id="sbtx13" class="spfs">21°C</p>
+                    </div>
+                    <div id="sb19" class="statBlock">
+                        <p id="sbtx14" class="spfs">%3</p>
+                    </div>
+                    <div id="sb20" class="statBlock">
+                        <p id="sbtx15" class="spfs">1.41m/s</p>
+                    </div>
                 </div>
             </div>
         </div>

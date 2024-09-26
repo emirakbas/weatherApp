@@ -51,8 +51,9 @@ body h1 {
     justify-content: center;
     align-items: start;
     width: 60%;
+    min-width: 50vh;
     height: 60%;
-    margin-top: 8em;
+    margin-top: 20vh;
     overflow: hidden;
     border-radius: 5vh;
     padding-top: 1em;
@@ -119,6 +120,7 @@ button:active {
     justify-content: start;
     align-items: center;
     width: 50%;
+    min-width: 35vh;
     height: 100%;
     backdrop-filter: blur(40px);
     border-radius: 5vh;
@@ -129,10 +131,11 @@ button:active {
 .mainContainerRight {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     width: 50%;
     height: 100%;
+    min-width: 35vh;
     backdrop-filter: blur(40px);
     border-radius: 5vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
@@ -174,7 +177,7 @@ button:active {
 
 .daySlot {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     font-family: "Open Sans";
@@ -184,7 +187,7 @@ button:active {
     margin-bottom: 1em;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.30);
     width: 100%;
-    height: 12vh;
+    height: 100%;
     padding-left: 1rem;
 }
 
@@ -195,16 +198,16 @@ button:active {
 
 .descriptionWeather {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-family: "Open Sans";
     font-weight: 100;
     color: white;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     width: 100%;
-    height: 5vh;
+    height: 20vh;
 }
 
 .dayStats {
@@ -212,7 +215,7 @@ button:active {
     height: 98%;
     margin-right: 0.5em;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 0.1em;
 }
@@ -221,10 +224,8 @@ button:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
     height: 100%;
     width: 3em;
-    opacity: 0.3;
 }
 
 .dayTitle {
@@ -240,4 +241,160 @@ button:active {
     align-items: center;
     width: 10em;
     height: 10em;
+}
+
+.weatherIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    margin-bottom: -1rem;
+}
+
+#todayTemp {
+    font-size: 3rem;
+}
+
+#todayStatusDescription {
+    font-size: 1.5rem;
+}
+
+#miniDescription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    height: 5vh;
+    margin-top: 0.5em;
+    font-size: 0.8rem;
+}
+
+.spfs {
+    font-size: 1rem;
+}
+
+
+@media screen and (max-width: 1080px) {
+    body h1 {
+        font-size: 1.5rem;
+    }
+
+    input {
+        width: 15rem;
+        min-width: 10rem;
+        max-width: 22.5rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
+
+    button {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        min-width: 50vh;
+        height: 80%;
+        margin-top: 15vh;
+        gap: 0.5em;
+    }
+
+    .mainContainerLeft {
+        width: 85%;
+        min-width: 40vh;
+        height: 35vh;
+    }
+
+    .mainContainerRight {
+        width: 85%;
+        min-width: 35vh;
+        height: 35vh;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        font-size: 1rem;
+        margin-top: 1.4em;
+    }
+
+    .description {
+        font-size: 0.8rem;
+        margin-top: 2.4rem;
+        height: 4vh;
+    }
+
+    .mainContainerRight .description {
+        font-size: 1.2rem;
+        height: 5vh;
+    }
+
+    .daySlot {
+        font-size: 1.2rem;
+    }
+
+    .bx-sun {
+        font-size: 8rem;
+    }
+
+    .descriptionWeather {
+        font-size: 2rem;
+        height: 20vh;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .dayStats {
+        width: 70%;
+    }
+
+    .statBlock {
+        width: 3em;
+    }
+
+    .dayTitle {
+        width: 4em;
+        padding-right: 5em;
+    }
+
+    #todayIcon {
+        width: 10em;
+        height: 10em;
+    }
+
+    .weatherIcon {
+        height: 5rem;
+        margin-top: -1em;
+    }
+
+   #todayIcon {
+        width: 6em;
+        height: 6em;
+    }
+
+    #todayTemp {
+        font-size: 2rem;
+        margin-top: 0.5em;
+    }
+
+    #todayStatusDescription {
+        font-size: 1rem;
+    }
+
+    #miniDescription {
+        height: 5vh;
+        font-size: 0.5rem;
+    }
+
+    .spfs {
+        font-size: 1rem;
+    }
+    
 }

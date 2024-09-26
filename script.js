@@ -38,7 +38,7 @@ daySix = days[(dayOfWeek + 5)%7];
 console.log(`Bugün günlerden ${nowDay}.`); // Bugünün adını söyler.
 // API ve beraberindeki fonksiyonlar:
 
-document.querySelector('#desToDay').innerHTML = (`${nowDay} (Bugün)`);
+document.querySelector('#desToDay').innerHTML = (`${nowDay} `);
 
 document.querySelector('#d1').innerHTML = (`${dayTwo}`);
 document.querySelector('#d2').innerHTML = (`${dayThree}`);
@@ -50,13 +50,117 @@ document.querySelector('#d5').innerHTML = (`${daySix}`);
 
 // Hava Açıklamaları (Weather Descriptions - wD):
 
-wD = ['clear sky', 'few clouds', 'scattered clouds', 'broken clouds', 'shower rain', 'rain', 'thunderstorm', 'snow', 'mist', 'overcast clouds'];
-wDTR = ['Hava Açık', 'Az Bulutlu', 'Parçalı Bulutlu', 'Çok Bulutlu', 'Yer Yer Sağanak Yağışlı', 'Sağanak Yağışlı', 'Gök Gürültülü Fırtına', 'Karlı', 'Sisli', 'Hava Kapalı'];
+const wD = {
+    'clear sky': 'Hava Açık',
+    'few clouds': 'Az Bulutlu',
+    'scattered clouds': 'Parçalı Bulutlu',
+    'broken clouds': 'Çok Bulutlu',
+    'shower rain': 'Yer Yer Sağanak Yağışlı',
+    'rain': 'Sağanak Yağışlı',
+    'thunderstorm': 'Gök Gürültülü Fırtına',
+    'snow': 'Karlı',
+    'mist': 'Sisli',
+    'overcast clouds': 'Hava Kapalı',
+    "200" : "Hafif yağmurlu gök gürültülü fırtına",
+    "201" : "Yağmurlu gök gürültülü fırtına",
+    "202" : "Yoğun yağmurlu gök gürültülü fırtına",
+    "210" : "Hafif gök gürültüsü",
+    "211" : "Gök gürültüsü",
+    "212" : "Yoğun gök gürültüsü",
+    "221" : "Dağınık gök gürültüsü",
+    "230" : "Hafif çiseli gök gürültüsü",
+    "231" : "Çiseli gök gürültüsü",
+    "232" : "Yoğun çiseli gök gürültüsü",
+    "300" : "Hafif çiseli yağmur",
+    "301" : "Çiseli yağmur",
+    "302" : "Yoğun çiseli yağmur",
+    "310" : "Hafif çiseli yağmur",
+    "311" : "Çiseli yağmur",
+    "312" : "Yoğun çiseli yağmur",
+    "313" : "Yağmur ve çiselik",
+    "314" : "Yoğun yağmur ve çiselik",
+    "321" : "Yağmur çiseli",
+    "500" : "Hafif yağmur",
+    "501" : "Orta şiddette yağmur",
+    "502" : "Yoğun yağmur",
+    "503" : "Çok yoğun yağmur",
+    "504" : "Aşırı yağmur",
+    "511" : "Donmuş yağmur",
+    "520" : "Hafif şiddette sağanak yağmur",
+    "521" : "Sağanak yağmur",
+    "522" : "Yoğun sağanak yağmur",
+    "531" : "Dağınık sağanak yağmur",
+    "600" : "Hafif kar",
+    "601" : "Kar",
+    "602" : "Yoğun kar",
+    "611" : "Sleet (karla karışık yağmur)",
+    "612" : "Hafif yağmur ve kar",
+    "613" : "Yağmur ve kar",
+    "615" : "Hafif yağmur ve kar",
+    "616" : "Yağmur ve kar",
+    "620" : "Hafif kar yağışı",
+    "621" : "Kar yağışı",
+    "622" : "Yoğun kar yağışı",
+    "701" : "Sis",
+    "711" : "Duman",
+    "721" : "Haze (sisli hava)",
+    "731" : "Toz",
+    "741" : "Sis",
+    "751" : "Kum",
+    "761" : "Toz",
+    "762" : "Volkanik kül",
+    "771" : "Fırtına",
+    "781" : "Tornado",
+    "800" : "Açık hava",
+    "801" : "Az bulutlu",
+    "802" : "Parçalı bulutlu",
+    "803" : "Çok bulutlu",
+    "804" : "Kapalı",
+};
 
 // Hava ikonları:
 
-wI = ['01d', '02d', '03d', '04d', '09d', '10d', '11d', '13d', '50d'];
+const wI = {
+    '01d': 'http://openweathermap.org/img/wn/01d@2x.png',
+    '02d': 'http://openweathermap.org/img/wn/02d@2x.png',
+    '03d': 'http://openweathermap.org/img/wn/03d@2x.png',
+    '04d': 'http://openweathermap.org/img/wn/04d@2x.png',
+    '09d': 'http://openweathermap.org/img/wn/09d@2x.png',
+    '10d': 'http://openweathermap.org/img/wn/10d@2x.png',
+    '11d': 'http://openweathermap.org/img/wn/11d@2x.png',
+    '13d': 'http://openweathermap.org/img/wn/13d@2x.png',
+    '50d': 'http://openweathermap.org/img/wn/50d@2x.png',
+    '01n': 'http://openweathermap.org/img/wn/01n@2x.png',
+    '02n': 'http://openweathermap.org/img/wn/02n@2x.png',
+    '03n': 'http://openweathermap.org/img/wn/03n@2x.png',
+    '04n': 'http://openweathermap.org/img/wn/04n@2x.png',
+    '09n': 'http://openweathermap.org/img/wn/09n@2x.png',
+    '10n': 'http://openweathermap.org/img/wn/10n@2x.png',
+    '11n': 'http://openweathermap.org/img/wn/11n@2x.png',
+    '13n': 'http://openweathermap.org/img/wn/13n@2x.png',
+    '50n': 'http://openweathermap.org/img/wn/50n@2x.png'
+};
 
+const wIBig = {
+    '01d': 'http://openweathermap.org/img/wn/01d@4x.png',
+    '02d': 'http://openweathermap.org/img/wn/02d@4x.png',
+    '03d': 'http://openweathermap.org/img/wn/03d@4x.png',
+    '04d': 'http://openweathermap.org/img/wn/04d@4x.png',
+    '09d': 'http://openweathermap.org/img/wn/09d@4x.png',
+    '10d': 'http://openweathermap.org/img/wn/10d@4x.png',
+    '11d': 'http://openweathermap.org/img/wn/11d@4x.png',
+    '13d': 'http://openweathermap.org/img/wn/13d@4x.png',
+    '50d': 'http://openweathermap.org/img/wn/50d@4x.png',
+    '01n': 'http://openweathermap.org/img/wn/01n@4x.png',
+    '02n': 'http://openweathermap.org/img/wn/02n@4x.png',
+    '03n': 'http://openweathermap.org/img/wn/03n@4x.png',
+    '04n': 'http://openweathermap.org/img/wn/04n@4x.png',
+    '09n': 'http://openweathermap.org/img/wn/09n@4x.png',
+    '10n': 'http://openweathermap.org/img/wn/10n@4x.png',
+    '11n': 'http://openweathermap.org/img/wn/11n@4x.png',
+    '13n': 'http://openweathermap.org/img/wn/13n@4x.png',
+    '50n': 'http://openweathermap.org/img/wn/50n@4x.png'
+};
 
 searchButton.addEventListener('click', function() {
 
@@ -103,51 +207,68 @@ searchBox.addEventListener('keydown', function(event) {
             }      
         }); */
 
-        var averageTemperature = parseInt(data.list[0].main.temp - 273.15 + 4);
+        var averageTemperature = parseInt(data.list[0].main.temp - 273.15);
         console.log(` ${cityName.value} bugün ${averageTemperature} °C'dir.`);
 
-        console.log(data.list[0].weather[0].description);
-        if (data.list[0].weather[0].description == wD[0]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[0];
-        } else if (data.list[0].weather[0].description == wD[1]) { 
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[1];
-        } else if (data.list[0].weather[0].description == wD[2]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[2];
-        } else if (data.list[0].weather[0].description == wD[3]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[3];
-        } else if (data.list[0].weather[0].description == wD[4]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[4];
-        } else if (data.list[0].weather[0].description == wD[5]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[5];
-        } else if (data.list[0].weather[0].description == wD[6]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[6];
-        } else if (data.list[0].weather[0].description == wD[7]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[7];
-        } else if (data.list[0].weather[0].description == wD[8]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[8];
-        } else if (data.list[0].weather[0].description == wD[9]) {
-            document.querySelector('#todayStatusDescription').innerHTML = wDTR[9];
-        } 
-        else {
-            document.querySelector('#todayStatusDescription').innerHTML = data.list[0].weather[0].description;
-        }
+        console.log(`Hava Tipi: ${data.list[0].weather[0].description}`);
 
-        if (data.list[0].weather[0].icon == wI[0]) {
-            document.querySelector('#todayIcon').src = 'https://openweathermap.org/img/wn/01d@4x.png';
-        } else if (data.list[0].weather[0].icon == wI[1]) {
-            document.querySelector('#todayIcon').src = 'https://openweathermap.org/img/wn/02d@2x.png';
-        } else if (data.list[0].weather[0].icon == wI[2]) {
-            document.querySelector('#todayIcon').src = 'http://openweathermap.org/img/wn/03d@2x.png';
-        } else if (data.list[0].weather[0].icon == wI[3]) {
-            document.querySelector('#todayIcon').src = 'http://openweathermap.org/img/wn/04d@2x.png';
-        } else if (data.list[0].weather[0].icon == wI[4]) {
-            document.querySelector('#todayIcon').src = 'http://openweathermap.org/img/wn/09d@2x.png';
-        } else if (data.list[0].weather[0].icon == wI[5]) {
-            document.querySelector('#todayIcon').src = 'http://openweathermap.org/img/wn/10d@2x.png';
-        } else if (data.list[0].weather[0].icon == wI[6]) {
-            document.querySelector('#todayIcon').src = 'http://openweathermap.org/img/wn/11d@2x.png';
-        } else if (data.list[0].weather[0].icon == wI[7]) {
-            document.querySelector('#todayIcon').src = 'http://
+        const wDID = data.list[0].weather[0].id;
+        document.querySelector('#todayStatusDescription').innerHTML = wD[wDID];
+        
+        // Arayüz Hava İkonları:
+
+        const wIID = data.list[0].weather[0].icon;
+        document.querySelector('#todayIcon').src = wIBig[wIID];
+        console.log(wIBig[wIID]);
+
+        const wIID2 = data.list[8].weather[0].icon;
+        document.querySelector('#si1').src = wI[wIID2];
+        console.log(wI[wIID2]);
+
+        const wIID3 = data.list[16].weather[0].icon;
+        document.querySelector('#si2').src = wI[wIID3];
+
+        const wIID4 = data.list[24].weather[0].icon;
+        document.querySelector('#si3').src = wI[wIID4];
+
+        const wIID5 = data.list[32].weather[0].icon;
+        document.querySelector('#si4').src = wI[wIID5];
+
+        const wIID6 = data.list[39].weather[0].icon;
+        document.querySelector('#si5').src = wI[wIID6];
+        console.log(wIID6);
+
+        // Arayüz Tahmin Değerleri:
+        document.querySelector('#todayTemp').innerHTML = (averageTemperature + '°C');
+        document.querySelector('#todayHumidity').innerHTML = ('Nem %' + data.list[0].main.humidity);
+        document.querySelector('#todayWind').innerHTML = ('Rüzgar ' + data.list[0].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[0].main.humidity}`);
+
+        document.querySelector('#sbtx1').innerHTML = (parseInt(data.list[8].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx2').innerHTML = ('%' + data.list[8].main.humidity);
+        document.querySelector('#sbtx3').innerHTML = (data.list[8].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[8].main.humidity}`);
+
+        document.querySelector('#sbtx4').innerHTML = (parseInt(data.list[16].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx5').innerHTML = ('%' + data.list[16].main.humidity);
+        document.querySelector('#sbtx6').innerHTML = (data.list[16].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[16].main.humidity}`);
+
+        document.querySelector('#sbtx7').innerHTML = (parseInt(data.list[24].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx8').innerHTML = ('%' + data.list[24].main.humidity);
+        document.querySelector('#sbtx9').innerHTML = (data.list[24].wind.speed + 'm/s');
+        console.log(`Nem %${data.list[24].main.humidity}`);
+
+        document.querySelector('#sbtx10').innerHTML = (parseInt(data.list[32].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx11').innerHTML = ('%' + data.list[32].main.humidity);
+        document.querySelector('#sbtx12').innerHTML = (data.list[32].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[32].main.humidity}`);
+
+        document.querySelector('#sbtx13').innerHTML = (parseInt(data.list[39].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx14').innerHTML = ('%' + data.list[39].main.humidity);
+        document.querySelector('#sbtx15').innerHTML = (data.list[39].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[39].main.humidity}`);
+
         })
         
         .catch(error => {
@@ -155,7 +276,3 @@ searchBox.addEventListener('keydown', function(event) {
         });
     }
 });
-
-
-/* TODO: 
-1- Commitlemeden önce API keyleri kaldır ve yerine {API_KEY} yaz. */
