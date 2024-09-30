@@ -1,4 +1,4 @@
-let API_KEY = 'YOUR_API_KEY';
+let API_KEY = 'YOUR_API_KEY'; // API anahtarınızı buraya yazın.
 
 // Mouse arama kutusunun üzerine gelince çalışacaklar:
 
@@ -36,7 +36,6 @@ dayFour = days[(dayOfWeek + 3)%7];
 dayFive = days[(dayOfWeek + 4)%7];
 daySix = days[(dayOfWeek + 5)%7];
 console.log(`Bugün günlerden ${nowDay}.`); // Bugünün adını söyler.
-// API ve beraberindeki fonksiyonlar:
 
 document.querySelector('#desToDay').innerHTML = (`${nowDay} `);
 
@@ -169,17 +168,93 @@ const cityName = document.querySelector('input');
 
 console.log(`Aranan şehir: ${cityName.value}`);
 
-fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName.value}&appid=${API_KEY}`)
-.then(response => {
-    console.log(response);
-    return response.json();
-})
-.then(data => {
-    console.log(data);
-})
-.catch(error => {
-    console.log(error);
-});
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName.value}&appid=${API_KEY}`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // data bizim son kullanıcıya ulaşan verimiz.
+            
+/*             data.list.forEach(listAll => {
+            const timeMs = new Date(listAll.dt * 1000);
+            const timeHour = timeMs.getUTCHours();
+            for (i = 3; i > 0; timeHour + 3) {
+                if (timeHour == 0) {
+                    console.log('Gün sonu');
+                }
+                console.log(timeHour);
+                return timeHour;s
+            }      
+        }); */
+
+        var averageTemperature = parseInt(data.list[0].main.temp - 273.15);
+        console.log(` ${cityName.value} bugün ${averageTemperature} °C'dir.`);
+
+        console.log(`Hava Tipi: ${data.list[0].weather[0].description}`);
+
+        const wDID = data.list[0].weather[0].id;
+        document.querySelector('#todayStatusDescription').innerHTML = wD[wDID];
+        
+        // Arayüz Hava İkonları:
+
+        const wIID = data.list[0].weather[0].icon;
+        document.querySelector('#todayIcon').src = wIBig[wIID];
+        console.log(wIBig[wIID]);
+
+        const wIID2 = data.list[8].weather[0].icon;
+        document.querySelector('#si1').src = wI[wIID2];
+        console.log(wI[wIID2]);
+
+        const wIID3 = data.list[16].weather[0].icon;
+        document.querySelector('#si2').src = wI[wIID3];
+
+        const wIID4 = data.list[24].weather[0].icon;
+        document.querySelector('#si3').src = wI[wIID4];
+
+        const wIID5 = data.list[32].weather[0].icon;
+        document.querySelector('#si4').src = wI[wIID5];
+
+        const wIID6 = data.list[39].weather[0].icon;
+        document.querySelector('#si5').src = wI[wIID6];
+        console.log(wIID6);
+
+        // Arayüz Tahmin Değerleri:
+        document.querySelector('#todayTemp').innerHTML = (averageTemperature + '°C');
+        document.querySelector('#todayHumidity').innerHTML = ('Nem %' + data.list[0].main.humidity);
+        document.querySelector('#todayWind').innerHTML = ('Rüzgar ' + data.list[0].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[0].main.humidity}`);
+
+        document.querySelector('#sbtx1').innerHTML = (parseInt(data.list[8].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx2').innerHTML = ('%' + data.list[8].main.humidity);
+        document.querySelector('#sbtx3').innerHTML = (data.list[8].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[8].main.humidity}`);
+
+        document.querySelector('#sbtx4').innerHTML = (parseInt(data.list[16].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx5').innerHTML = ('%' + data.list[16].main.humidity);
+        document.querySelector('#sbtx6').innerHTML = (data.list[16].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[16].main.humidity}`);
+
+        document.querySelector('#sbtx7').innerHTML = (parseInt(data.list[24].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx8').innerHTML = ('%' + data.list[24].main.humidity);
+        document.querySelector('#sbtx9').innerHTML = (data.list[24].wind.speed + 'm/s');
+        console.log(`Nem %${data.list[24].main.humidity}`);
+
+        document.querySelector('#sbtx10').innerHTML = (parseInt(data.list[32].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx11').innerHTML = ('%' + data.list[32].main.humidity);
+        document.querySelector('#sbtx12').innerHTML = (data.list[32].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[32].main.humidity}`);
+
+        document.querySelector('#sbtx13').innerHTML = (parseInt(data.list[39].main.temp - 273.15) + '°C');
+        document.querySelector('#sbtx14').innerHTML = ('%' + data.list[39].main.humidity);
+        document.querySelector('#sbtx15').innerHTML = (data.list[39].wind.speed + 'm/s');
+        console.log(`Nem: %${data.list[39].main.humidity}`);
+
+        })
+        
+        .catch(error => {
+            console.log(error);
+            alert('Beklenmedik bir hatayla karşılaştık. Lütfen tekrar deneyin. (Yanlış şehir adı veya API hatası. Şehir adını ve API anahtarınızın aktif olduğunu kontrol edin.)');
+        });
 });
 
 searchBox.addEventListener('keydown', function(event) {
@@ -273,6 +348,7 @@ searchBox.addEventListener('keydown', function(event) {
         
         .catch(error => {
             console.log(error);
+            alert('Beklenmedik bir hatayla karşılaştık. Lütfen tekrar deneyin. (Yanlış şehir adı veya API hatası. Şehir adını ve API anahtarınızın aktif olduğunu kontrol edin.)');
         });
     }
 });
